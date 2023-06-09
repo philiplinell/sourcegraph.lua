@@ -4,6 +4,8 @@ This repository contains a Lua plugin that integrates
 [Sourcegraph](https://sourcegraph.com/) search into Neovim. This tool helps
 developers search for code snippets directly from their Neovim environment.
 
+![](usage.gif)
+
 ## Features
 
 - Open the URL in the default browser to show search results on Sourcegraph
