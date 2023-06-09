@@ -1,4 +1,4 @@
-# Neovim Sourcegraph Integration
+# Sourcegraph.lua
 
 This repository contains a Lua plugin that integrates
 [Sourcegraph](https://sourcegraph.com/) search into Neovim. This tool helps
