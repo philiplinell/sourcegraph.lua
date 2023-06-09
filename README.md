@@ -1,54 +1,49 @@
 # Neovim Sourcegraph Integration
 
-This repository contains a Lua script (`sourcegraph.lua`) that integrates
+This repository contains a Lua plugin that integrates
 [Sourcegraph](https://sourcegraph.com/) search into Neovim. This tool helps
 developers search for code snippets directly from their Neovim environment.
 
 ## Features
 
-- Fetch selected code within Neovim
-- URL encode the fetched code for search
-- Construct a Sourcegraph URL including the selected code
 - Open the URL in the default browser to show search results on Sourcegraph
 - Contextual search based on the file type of the current buffer
 
 ## Usage
 
 After you've installed the script (see Installation section below), you can use
-it by simply selecting text in visual mode in Neovim and pressing `<leader>S`.
+it by simply selecting text in visual mode in Neovim and pressing `<leader>S`
+(default - see below to change keybinding).
 This will construct a Sourcegraph search URL with the selected text and open it
 in your default web browser.
 
-## Installation
+### Customizing the Key Binding
 
-To install the script, follow these steps:
+By default, the key binding to trigger a Sourcegraph search is `<leader>S`. If
+you want to use a different key binding, you can set the `g:sourcegraph_key`
+variable in your `.vimrc` or `init.vim` file. For example, to use `<leader>sg`
+as the key binding, add this line:
 
-1. Clone the repository or download the `sourcegraph.lua` file.
-2. Move the `sourcegraph.lua` file to your Neovim configuration directory (usually `~/.config/nvim/lua`).
-3. Add the following line to your Neovim configuration file (`init.vim` or `init.lua`): `require'sourcegraph'`.
-4. Change the mapping to the location of your path
-
-E.g.
-
-```sh
-  vnoremap <leader>S :lua require'philiplinell.sourcegraph'.search_sourcegraph()<CR>
-
+```vim
+let g:sourcegraph_key = '<leader>sg'
 ```
 
-My path is `config/nvim/lua/philiplinell/sourcegraph.lua`.
+## Installation
 
-## Contributing
+Using vim-plug, add the following to your `init.vim` or `.vimrc`:
 
-Contributions are welcome! Please submit a pull request or open an issue if you have any improvements or suggestions.
+`Plug 'philiplinell/sourcegraph.lua'`
+
+Save the file and run the `:PlugInstall` command in Neovim.
 
 ## Disclaimer
 
-I am not used to the neovim API, lua or sourcegraph!
+This is my first Neovim plugin, and I'm still learning the Neovim API, Lua, and
+Sourcegraph. I've had a lot of help from ChatGPT, OpenAI's language model, both
+for writing the sourcegraph.lua script and for creating this README.
 
-The majority of `sourcegraph.lua` was written with the help of ChatGPT, as well
-as the majority of this README.
-
-These are some of the prompts that I used
+I've listed some of the prompts I used with ChatGPT below, to give an idea of
+how it helped create this plugin:
 
 ```
 I would like to create a neovim plugin, in lua, that takes the text I have selected in visual mode and open that in a browser.
@@ -61,3 +56,7 @@ https://sourcegraph.com/search?q=context:global+QUERY&patternType=standard&sm=1
 ```
 I'll create a repository that has the sourcegraph.lua file. Can you suggest a readme for the repository?
 ```
+
+If you have any suggestions or improvements, or if you find any issues, please
+don't hesitate to open an issue or a pull request. Any contributions are very
+welcome!

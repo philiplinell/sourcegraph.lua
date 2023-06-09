@@ -1,7 +1,7 @@
 --[[
     This script allows you to quickly search for a selected piece of code
     in Sourcegraph directly from Neovim. When you highlight text in visual
-    mode and press <leader>S, the script fetches the selected text, URL encodes
+    mode and press <leader>S (default), the script fetches the selected text, URL encodes
     it, and constructs a Sourcegraph search URL. The search is also tailored
     to the file type you're currently working with in Neovim. The script then
     opens the constructed URL in your default web browser, taking you straight
@@ -106,10 +106,5 @@ function M.search_sourcegraph()
         print("Error: Unrecognized OS.")
     end
 end
-
--- Map the function to the <leader>S key in visual mode.
-vim.api.nvim_exec([[
-  vnoremap <leader>S :lua require'philiplinell.sourcegraph'.search_sourcegraph()<CR>
-]], false)
 
 return M
